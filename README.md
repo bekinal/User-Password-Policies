@@ -1,4 +1,4 @@
-<h1>User Password Policies</h1>
+<h1>Handling Local Security Policies</h1>
 
 <h2>Description</h2>
 Project consists of using Active Directory Group Policy Management to configure password policies for users in the domain.
