@@ -72,33 +72,92 @@ Note the rule and click OK: <br/>
 
 
 
-<h2>Verify Password Policies:</h2>
-Log into the Windows 10 client under a regular user and run "gpupdate /force": <br/>
-<img src="https://imagizer.imageshack.com/img924/2693/DDN9IR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h2>Rename Administrator:</h2>
+Logging into the Windows 10 machine with administrator@cyber.local: <br/>
+<img src="https://imagizer.imageshack.com/img922/253/AGQL30.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Press Ctrl+Alt+Del to change your password: <br/>
-<img src="https://imagizer.imageshack.com/img923/6755/qT1vf6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Search query for Edit local users and groups: <br/>
+<img src="https://imagizer.imageshack.com/img922/4189/O3fumz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Click change password!: <br/>
-<img src="https://imagizer.imageshack.com/img922/5775/Jmcj8N.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Opening users to find the Administrator account: <br/>
+<img src="https://imagizer.imageshack.com/img924/9849/zF5Nio.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Attempt to change password to Abc123!: <br/>
-<img src="https://imagizer.imageshack.com/img922/1449/XbWP4A.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Back to the domain controller on Windows Server. New GPO named Rename Admin: <br/>
+<img src="https://imagizer.imageshack.com/img924/8013/owcOap.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Verify the password does not change due to lack of requirements: <br/>
-<img src="https://imagizer.imageshack.com/img923/6008/gYLPb4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+GPO is edited by navigating the following path: <br/>
+<img src="https://imagizer.imageshack.com/img923/7154/5mSwEF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Change the password to Presto123! Note that the password change is a success: <br/>
-<img src="https://imagizer.imageshack.com/img922/397/J7IYIJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Accounts: Rename administrator account is selected: <br/>
+<img src="https://imagizer.imageshack.com/img922/6762/rRvOXm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Log out, and force an account lockout by inputting five incorrect passwords: <br/>
-<img src="https://imagizer.imageshack.com/img924/851/BkB57R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Generic User is defined within the policy setting: <br/>
+<img src="https://imagizer.imageshack.com/img922/9392/8Q8plv.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Generic User verified within the Policy Setting: <br/>
+<img src="https://imagizer.imageshack.com/img923/2214/vxrfQM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Rename Admin GPO is linked to Local Security Policies: <br/>
+<img src="https://imagizer.imageshack.com/img922/8071/kfRM28.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Policy is updated on the Windows 10 machine by running gpupdate /force on an administrator account: <br/>
+<img src="https://imagizer.imageshack.com/img924/849/52i9UL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Edit local users and groups is reopened to verify that the administrator account is changed in name to Generic User: <br/>
+<img src="https://imagizer.imageshack.com/img924/7586/Hguc3V.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+
+
+<h2>Disable Account Display:</h2>
+Logging off of the current user will display the last user that was logged in. This can be prevented: <br/>
+<img src="https://imagizer.imageshack.com/img922/6300/TfhoC9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Note that "Salesperson1" will appear in the immediate log history: <br/>
+<img src="https://imagizer.imageshack.com/img923/9601/1Qbjiw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+On the domain controller, a new GPO is created named Disable Last Login Display in the Gorup Policy Objects Folder: <br/>
+<img src="https://imagizer.imageshack.com/img923/2619/tUWpsf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+GPO is edited and Security Options is selected: <br/>
+<img src="https://imagizer.imageshack.com/img922/6591/7fPkaJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Interactive logon: Do not display last user name is selected: <br/>
+<img src="https://imagizer.imageshack.com/img922/4807/aRfRHG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+GPO is enabled: <br/>
+<img src="https://imagizer.imageshack.com/img923/8439/wLYxfQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+New GPO is linked to Local Security Policies: <br/>
+<img src="https://imagizer.imageshack.com/img924/6701/6wOjMw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Disable Last Login Display is selected: <br/>
+<img src="https://imagizer.imageshack.com/img924/5191/r6t1Fu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Windows 10 is updated via gpupdate /force: <br/>
+<img src="https://imagizer.imageshack.com/img924/3213/d1Wkz9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Logging out can verify that the previous user feature is removed: <br/>
+<img src="https://imagizer.imageshack.com/img923/5161/kPmIx6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 
